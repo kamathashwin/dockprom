@@ -78,11 +78,12 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     restart: unless-stopped
     expose:
-      - 8080
+      - 8081
     networks:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+  
   
   grafana:
     image: grafana/grafana
@@ -93,9 +94,9 @@ services:
       - user.config
     restart: unless-stopped
     expose:
-      - 3000
+      - 5000
     ports:
-      - 3000:3000
+      - 5000:80
     networks:
       - monitor-net
     labels:
